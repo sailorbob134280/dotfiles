@@ -1,0 +1,31 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ['~']
+
+- link:
+    # Shells
+    ~/.bashrc:
+    ~/.zshrc: zsh/zshrc
+    ~/.oh-my-zsh: zsh/ohmyzsh
+    ~/.p10k.zsh: zsh/p10k.zsh
+
+    # Tmux
+    ~/.tmux:
+    ~/.tmux.conf:
+
+    # Vim
+    ~/.config/nvim: nvim/NvChad
+
+    # Tools
+    ~/.config/k9s: k9s
+
+- shell:
+    - command: git submodule sync --recursive
+      description: Sync Submodules
+      quiet: true
+    - command: git submodule update --init --recursive
+      description: Update Submodules
+      quiet: true
