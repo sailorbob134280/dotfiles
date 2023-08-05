@@ -24,6 +24,35 @@
 
     # Tools
     ~/.config/k9s: k9s
+    ~/.asdf:
+
+- asdf:
+  - plugin: kubectl
+    url: https://github.com/asdf-community/asdf-kubectl.git
+    global: 1.27.4
+    versions:
+      - 1.27.4
+  - plugin: nodejs
+    url: https://github.com/asdf-vm/asdf-nodejs
+    global: 18.17.0
+    versions:
+      - 18.17.0
+      - latest
+  - plugin: golang
+    url: https://github.com/kennyp/asdf-golang
+    global: 1.20.7
+    versions:
+      - 1.20.7
+  - plugin: k9s
+    url: https://github.com/looztra/asdf-k9s.git
+    global: 0.27.4
+    versions: 
+      - 0.27.4
+  - plugin: neovim
+    url: https://github.com/richin13/asdf-neovim.git
+    global: stable
+    versions:
+      - stable
 
 - shell:
     - command: git submodule sync --recursive
