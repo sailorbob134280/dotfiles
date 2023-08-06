@@ -38,13 +38,13 @@ M.dap_go = {
       function ()
         require("dap_go").debug_test()
       end,
-      "Debug go test"
+      "Debug go test",
     },
     ["<leader>dgl"] = {
       function ()
         require("dap_go").debug_last()
       end,
-      "Debug last go test"
+      "Debug last go test",
     },
   }
 }
@@ -54,11 +54,11 @@ M.gopher = {
   n = {
     ["<leader>gsj"] = {
       "<cmd> GoTagAdd json <CR>",
-      "Add JSON struct tags"
+      "Add JSON struct tags",
     },
     ["<leader>gsy"] = {
       "<cmd> GoTagAdd yaml <CR>",
-      "Add YAML struct tags"
+      "Add YAML struct tags",
     },
   }
 }
@@ -69,7 +69,8 @@ M.dap_python = {
     ["<leader>dpr"] = {
       function ()
         require('dap-python').test_method()
-      end
+      end,
+      "Debug Python test",
     }
   }
 }
