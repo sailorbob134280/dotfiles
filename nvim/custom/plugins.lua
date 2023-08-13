@@ -11,8 +11,16 @@ local plugins = {
     end,
   },
   {
-    "jamestthompson3/nvim-remote-containers",
+    "MunifTanjim/prettier.nvim",
     lazy = false,
+    config = function ()
+      require("prettier").setup({
+        bin = "prettierd",
+        cli_options = {
+          html_whitespace_sensitivity = "css",
+        },
+      })
+    end
   },
   {
     "williamboman/mason.nvim",
@@ -31,7 +39,12 @@ local plugins = {
         "debugpy",
         "clangd",
         "clang-format",
-        "codelldb"
+        "codelldb",
+        "prettierd",
+        "typescript-language-server",
+        "svelte-language-server",
+        "tailwindcss-language-server",
+        "emmet-ls"
       },
     },
   },

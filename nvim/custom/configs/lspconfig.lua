@@ -4,6 +4,35 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require("lspconfig")
 local util = require "lspconfig/util"
 
+lspconfig.svelte.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.tsserver.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.tailwindcss.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.emmet_ls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
+})
+
 lspconfig.clangd.setup({
   on_attach = function (client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
@@ -33,3 +62,4 @@ lspconfig.gopls.setup {
     },
   },
 }
+
