@@ -122,6 +122,10 @@ local plugins = {
       require("core.utils").load_mappings("gopher")
     end,
   },
+  {
+    "github/copilot.vim",
+    event = "VeryLazy",
+  },
 }
 
 return plugins
