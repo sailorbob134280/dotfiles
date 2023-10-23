@@ -123,8 +123,14 @@ local plugins = {
     end,
   },
   {
-    "github/copilot.vim",
-    event = "VeryLazy",
+    "zbirenbaum/copilot.lua",
+    lazy = false,
+    opts = function ()
+      return require "custom.configs.copilot"
+    end,
+    config = function(_, opts)
+      require("copilot").setup(opts)
+    end
   },
 }
 
