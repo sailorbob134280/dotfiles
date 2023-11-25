@@ -132,6 +132,11 @@ local plugins = {
       require("copilot").setup(opts)
     end
   },
+  {
+    "NoahTheDuke/vim-just",
+    event = { "BufReadPre", "BufNewFile" },
+    ft = { "\\cjustfile", "*.just", ".justfile" },
+  },
 }
 
 return plugins

@@ -16,7 +16,7 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: default
+  currentContext: k3s-lab
   currentCluster: default
   clusters:
     default:
@@ -24,11 +24,30 @@ k9s:
         active: all
         lockFavorites: false
         favorites:
-        - kube-public
         - all
         - default
       view:
-        active: pods
+        active: pod
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+    minikube:
+      namespace:
+        active: default
+        lockFavorites: false
+        favorites:
+        - default
+      view:
+        active: context
       featureGates:
         nodeShell: false
       shellPod:
