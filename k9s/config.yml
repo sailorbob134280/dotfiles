@@ -16,15 +16,15 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: minikube
-  currentCluster: minikube
+  currentContext: default
+  currentCluster: default
   clusters:
-    minikube:
+    default:
       namespace:
         active: all
         lockFavorites: false
         favorites:
-        - flux-system
+        - kube-public
         - all
         - default
       view:
