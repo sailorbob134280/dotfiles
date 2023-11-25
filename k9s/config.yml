@@ -17,17 +17,16 @@ k9s:
     textWrap: false
     showTime: false
   currentContext: k3s-lab
-  currentCluster: default
+  currentCluster: ""
   clusters:
-    default:
+    "":
       namespace:
-        active: all
+        active: default
         lockFavorites: false
         favorites:
-        - all
         - default
       view:
-        active: pod
+        active: po
       featureGates:
         nodeShell: false
       shellPod:

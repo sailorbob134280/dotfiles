@@ -36,9 +36,9 @@
 - asdf:
     - plugin: kubectl
       url: https://github.com/asdf-community/asdf-kubectl.git
-      global: 1.27.4
+      global: latest
       versions:
-        - 1.27.4
+        - latest
     - plugin: nodejs
       url: https://github.com/asdf-vm/asdf-nodejs
       global: 18.17.0
@@ -52,9 +52,9 @@
         - 1.20.7
     - plugin: k9s
       url: https://github.com/looztra/asdf-k9s.git
-      global: 0.27.4
+      global: latest
       versions:
-        - 0.27.4
+        - latest
     - plugin: neovim
       url: https://github.com/richin13/asdf-neovim.git
       global: stable
@@ -62,19 +62,34 @@
         - stable
     - plugin: lazydocker
       url: https://github.com/comdotlinux/asdf-lazydocker.git
-      global: 0.23.1
+      global: latest
       versions:
-        - 0.23.1
+        - latest
     - plugin: sops
       url: https://github.com/feniix/asdf-sops.git
-      global: 3.8.1
+      global: latest
       versions:
-        - 3.8.1
+        - latest
     - plugin: just
       url: https://github.com/olofvndrhr/asdf-just.git
-      global: 1.16.0
+      global: latest
       versions:
-        - 1.16.0
+        - latest
+    - plugin: argocd
+      url: https://github.com/beardix/asdf-argocd.git
+      global: latest
+      versions:
+        - latest
+    - plugin: helm
+      url: https://github.com/Antiarchitect/asdf-helm.git
+      global: latest
+      versions:
+        - latest
+    - plugin: terraform
+      url: https://github.com/asdf-community/asdf-hashicorp.git
+      global: latest
+      versions:
+        - latest
 
 - shell:
     - command: git submodule sync --recursive

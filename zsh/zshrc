@@ -124,9 +124,12 @@ source $ZSH/oh-my-zsh.sh
 # User conf
 alias vim=nvim
 alias ll="ls -alh"
-#
+
 # Generate kubectl autocompletion
-source <(kubectl completion zsh)
+#source <(kubectl completion zsh)
+
+# Set up default kubeconfig
+export KUBECONFIG=~/.kube/config
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
@@ -136,3 +139,6 @@ fpath+=~/.zsh/completions
 # The styles for completion descriptions and messages, zsh will hide them by default.
 zstyle ':completion:*:descriptions' format "%U%B%d%b%u"
 zstyle ':completion:*:messages' format "%F{green}%d%f"
+
+# zsh-autosuggestions key bindings
+bindkey '^[l' autosuggest-accept
