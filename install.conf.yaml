@@ -90,6 +90,11 @@
       global: latest
       versions:
         - latest
+    - plugin: kustomize
+      url: https://github.com/Banno/asdf-kustomize.git
+      global: latest
+      versions:
+        - latest
 
 - shell:
     - command: git submodule sync --recursive
