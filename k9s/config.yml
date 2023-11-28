@@ -16,19 +16,37 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: minikube
-  currentCluster: minikube
+  currentContext: k3s-lab
+  currentCluster: ""
   clusters:
-    minikube:
+    "":
       namespace:
-        active: all
+        active: default
         lockFavorites: false
         favorites:
-        - flux-system
-        - all
         - default
       view:
-        active: pods
+        active: po
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.35.0
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        labels: {}
+      portForwardAddress: localhost
+    minikube:
+      namespace:
+        active: default
+        lockFavorites: false
+        favorites:
+        - default
+      view:
+        active: context
       featureGates:
         nodeShell: false
       shellPod:
