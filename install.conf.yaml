@@ -41,15 +41,15 @@
         - latest
     - plugin: nodejs
       url: https://github.com/asdf-vm/asdf-nodejs
-      global: 18.17.0
+      global: latest
       versions:
         - 18.17.0
         - latest
     - plugin: golang
       url: https://github.com/kennyp/asdf-golang
-      global: 1.20.7
+      global: 1.23.0
       versions:
-        - 1.20.7
+        - 1.23.0
     - plugin: k9s
       url: https://github.com/looztra/asdf-k9s.git
       global: latest
@@ -87,6 +87,16 @@
         - latest
     - plugin: terraform
       url: https://github.com/asdf-community/asdf-hashicorp.git
+      global: latest
+      versions:
+        - latest
+    - plugin: zoxide
+      url: https://github.com/nyrst/asdf-zoxide.git
+      global: latest
+      versions:
+        - latest
+    - plugin: fzf
+      url: https://github.com/kompiro/asdf-fzf.git
       global: latest
       versions:
         - latest

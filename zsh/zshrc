@@ -83,9 +83,7 @@ plugins=(
   docker 
   docker-compose
   kubectl
-  fluxcd
   terraform
-  thefuck
   tmux
   zsh-autosuggestions 
   zsh-syntax-highlighting)
@@ -123,7 +121,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User conf
 alias vim=nvim
-alias ll="ls -alh"
+alias ll="ls -alh --color"
 
 # Generate kubectl autocompletion
 #source <(kubectl completion zsh)
@@ -142,3 +140,9 @@ zstyle ':completion:*:messages' format "%F{green}%d%f"
 
 # zsh-autosuggestions key bindings
 bindkey '^[l' autosuggest-accept
+
+# Use zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
+# Setup fzf
+eval "$(fzf zsh)"
