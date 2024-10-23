@@ -1,0 +1,14 @@
+import = ["~/.config/alacritty/themes/deep_space.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding = { x = 2, y = 2 }
+
+[scrolling]
+history = 100000
+
+[font]
+normal = { family = "MesloLGS NF", style = "regular" }
+size = 7

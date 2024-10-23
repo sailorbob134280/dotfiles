@@ -14,6 +14,9 @@
     ~/.oh-my-zsh/custom/themes/powerlevel10k: zsh/powerlevel10k
     ~/.p10k.zsh: zsh/p10k.zsh
 
+    # Alacritty
+    ~/.config/alacritty: alacritty
+
     # ZSH Plugins
     ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions: zsh/zsh-autosuggestions
     ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting: zsh/zsh-syntax-highlighting

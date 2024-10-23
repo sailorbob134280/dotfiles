@@ -86,7 +86,8 @@ plugins=(
   terraform
   tmux
   zsh-autosuggestions 
-  zsh-syntax-highlighting)
+  zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,11 +121,18 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # User conf
-alias vim=nvim
-alias ll="ls -alh --color"
+# Use colors
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
-# Generate kubectl autocompletion
-#source <(kubectl completion zsh)
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+alias vim=nvim
+alias ll="ls -alh"
 
 # Set up default kubeconfig
 export KUBECONFIG=~/.kube/config
@@ -145,4 +153,4 @@ bindkey '^[l' autosuggest-accept
 eval "$(zoxide init --cmd cd zsh)"
 
 # Setup fzf
-eval "$(fzf zsh)"
+eval "$(fzf --zsh)"
