@@ -44,7 +44,8 @@ local plugins = {
         "typescript-language-server",
         "svelte-language-server",
         "tailwindcss-language-server",
-        "emmet-ls"
+        "emmet-ls",
+        "lua-language-server",
       },
     },
   },

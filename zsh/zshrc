@@ -78,10 +78,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git 
   asdf 
   docker 
   docker-compose
+  git 
+  golang
   kubectl
   terraform
   tmux
@@ -120,6 +121,9 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
 # User conf
 # Use colors
 alias ls='ls --color=auto'
@@ -137,9 +141,6 @@ alias ll="ls -alh"
 # Set up default kubeconfig
 export KUBECONFIG=~/.kube/config
 
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
 # Add custom completions
 fpath+=~/.zsh/completions
 # The styles for completion descriptions and messages, zsh will hide them by default.
@@ -154,3 +155,6 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Setup fzf
 eval "$(fzf --zsh)"
+
+# Load local settings
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local

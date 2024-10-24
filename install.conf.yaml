@@ -10,6 +10,7 @@
     ~/.profile:
     ~/.bashrc:
     ~/.zshrc: zsh/zshrc
+    ~/.zshrc.local: local/macos-zshrc
     ~/.oh-my-zsh: zsh/ohmyzsh
     ~/.oh-my-zsh/custom/themes/powerlevel10k: zsh/powerlevel10k
     ~/.p10k.zsh: zsh/p10k.zsh
@@ -63,6 +64,16 @@
       global: stable
       versions:
         - stable
+    - plugin: cue
+      url: https://github.com/asdf-community/asdf-cue.git
+      global: latest
+      versions:
+        - latest
+    - plugin: protoc
+      url: https://github.com/paxosglobal/asdf-protoc.git
+      global: latest
+      versions:
+        - latest
     - plugin: lazydocker
       url: https://github.com/comdotlinux/asdf-lazydocker.git
       global: latest
