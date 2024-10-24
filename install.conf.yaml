@@ -10,7 +10,7 @@
     ~/.profile:
     ~/.bashrc:
     ~/.zshrc: zsh/zshrc
-    ~/.zshrc.local: local/macos-zshrc
+    ~/.zshrc.local: local/zshrc.local
     ~/.oh-my-zsh: zsh/ohmyzsh
     ~/.oh-my-zsh/custom/themes/powerlevel10k: zsh/powerlevel10k
     ~/.p10k.zsh: zsh/p10k.zsh
@@ -111,6 +111,11 @@
         - latest
     - plugin: fzf
       url: https://github.com/kompiro/asdf-fzf.git
+      global: latest
+      versions:
+        - latest
+    - plugin: vhs
+      url: https://github.com/chessmango/asdf-vhs.git
       global: latest
       versions:
         - latest
