@@ -47,9 +47,9 @@
         - latest
     - plugin: golang
       url: https://github.com/kennyp/asdf-golang
-      global: 1.20.7
+      global: 1.22.1
       versions:
-        - 1.20.7
+        - 1.22.1
     - plugin: k9s
       url: https://github.com/looztra/asdf-k9s.git
       global: latest
@@ -92,6 +92,11 @@
         - latest
     - plugin: kustomize
       url: https://github.com/Banno/asdf-kustomize.git
+      global: latest
+      versions:
+        - latest
+    - plugin: lua
+      url: https://github.com/Stratus3D/asdf-lua.git
       global: latest
       versions:
         - latest

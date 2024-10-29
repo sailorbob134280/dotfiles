@@ -44,7 +44,8 @@ local plugins = {
         "typescript-language-server",
         "svelte-language-server",
         "tailwindcss-language-server",
-        "emmet-ls"
+        "emmet-ls",
+        "lua-language-server",
       },
     },
   },
@@ -79,7 +80,7 @@ local plugins = {
     dependencies = {"mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui"},
     config = function(_, opts)
       require("dap-go").setup(opts)
-      require("core.utils").load_mappings("dap_go")
+      require("core.utils").load_mappings("dap-go")
     end,
   },
   {

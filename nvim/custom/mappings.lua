@@ -36,13 +36,13 @@ M.dap_go = {
   n = {
     ["<leader>dgt"] = {
       function ()
-        require("dap_go").debug_test()
+        require("dap-go").debug_test()
       end,
       "Debug go test",
     },
     ["<leader>dgl"] = {
       function ()
-        require("dap_go").debug_last()
+        require("dap-go").debug_last()
       end,
       "Debug last go test",
     },
