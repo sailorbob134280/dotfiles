@@ -129,6 +129,11 @@
       global: latest
       versions:
         - latest
+    - plugin: gum
+      url: https://github.com/lwiechec/asdf-gum.git
+      global: latest
+      versions:
+        - latest
 
 - shell:
     - command: git submodule sync --recursive

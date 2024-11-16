@@ -133,10 +133,34 @@ alias egrep='egrep --color=auto'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias alert='notify-send --urgency=low "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias vim=nvim
 alias ll="ls -alh"
+
+# Use nvim as default editor
+export EDITOR=nvim
+
+# Use nvim as default git editor
+export GIT_EDITOR=nvim
+
+# Git aliases
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gcm='git commit -m "$(gum input --width 50 --placeholder "Summary of changes")" -m "$(gum write --width 80 --placeholder "Details of changes")"'
+alias gp='gum spin --spinner dot --title "Pushing changes..." --show-output -- git push'
+alias gpl='gum spin --spinner dot --title "Pulling changes..." --show-output -- git pull'
+alias gco='git branch | gum filter --no-limit | xargs git checkout'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gsw='git branch | gum filter --no-limit | xargs git switch'
+
+# Tmux aliases
+alias t='tmux'
+alias ta='tmux attach'
+alias ts='tmux switch-client -t $(tmux list-sessions -F \#S | gum filter --placeholder "Pick session...") || tmux attach -t $(tmux list-sessions -F \#S | gum filter --placeholder "Pick session...")'
 
 # Set up default kubeconfig
 export KUBECONFIG=~/.kube/config
