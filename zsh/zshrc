@@ -131,9 +131,18 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+# Add an "alert" function for long running commands.  Use like so:
+# alert sleep 10
+alert() {
+  set +e  # Disable immediate exit on error
+  gum spin --spinner dot --title "Running $*..." --show-output -- "$@"
+  ret_code=$?
+  notify-send --urgency=low "$* done"
+  return $ret_code
+}
+
+
+# alias alert="notify-send --urgency=low "$(history|tail -n1|sed -e '''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//''')" 
 
 alias vim=nvim
 alias ll="ls -alh"
@@ -149,7 +158,8 @@ alias g='git'
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit'
-alias gcm='git commit -m "$(gum input --width 50 --placeholder "Summary of changes")" -m "$(gum write --width 80 --placeholder "Details of changes")"'
+alias gcm='git commit -m "$(gum input --width 50 --placeholder "Summary of changes")"'
+alias gcmm='git commit -m "$(gum input --width 50 --placeholder "Summary of changes")" -m "$(gum write --width 80 --placeholder "Details of changes")"'
 alias gp='gum spin --spinner dot --title "Pushing changes..." --show-output -- git push'
 alias gpl='gum spin --spinner dot --title "Pulling changes..." --show-output -- git pull'
 alias gco='git branch | gum filter --no-limit | xargs git checkout'
