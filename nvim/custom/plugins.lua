@@ -138,6 +138,21 @@ local plugins = {
     event = { "BufReadPre", "BufNewFile" },
     ft = { "\\cjustfile", "*.just", ".justfile" },
   },
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    opts = require("custom.configs.oil-config"),
+    config = function(_, opts)
+      require('oil').setup(opts)
+    end,
+    keys = {
+      {"-", "<Cmd>Oil<CR>", mode = "n", desc = "Open parent directory" },
+      {"<space>-", "<Cmd>Oil --float<CR>", mode = "n", desc = "Open parent directory in floating window" },
+    },
+    -- Cannot be lazy loaded because otherwise it won't open
+    lazy = false,
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  },
 }
 
 return plugins

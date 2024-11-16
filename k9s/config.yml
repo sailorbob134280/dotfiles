@@ -24,6 +24,7 @@ k9s:
         active: all
         lockFavorites: false
         favorites:
+        - apps
         - all
         - default
       view:
