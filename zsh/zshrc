@@ -144,6 +144,11 @@ alert() {
 
 # alias alert="notify-send --urgency=low "$(history|tail -n1|sed -e '''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//''')" 
 
+# Fix go path nonsense with asdf
+export GOPATH=$(asdf where golang)/packages
+export GOROOT=$(asdf where golang)/go
+export PATH="${PATH}:$(go env GOPATH)/bin"
+
 alias vim=nvim
 alias ll="ls -alh"
 
