@@ -134,6 +134,11 @@
       global: latest
       versions:
         - latest
+    - plugin: goreleaser
+      url: https://github.com/kforsthoevel/asdf-goreleaser.git
+      global: latest
+      versions:
+        - latest
 
 - shell:
     - command: git submodule sync --recursive

@@ -141,8 +141,13 @@ alert() {
   return $ret_code
 }
 
-
-# alias alert="notify-send --urgency=low "$(history|tail -n1|sed -e '''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//''')" 
+# Count lines of code in a git repo
+gloc() {
+  git clone --depth 1 "$1" temp-linecount-repo &&
+    printf "('temp-linecount-repo' will be deleted automatically)\n\n\n" &&
+    cloc temp-linecount-repo &&
+    rm -rf temp-linecount-repo
+}
 
 # Fix go path nonsense with asdf
 export GOPATH=$(asdf where golang)/packages
