@@ -83,6 +83,7 @@ plugins=(
   docker-compose
   git 
   golang
+  jira
   kubectl
   terraform
   tmux
@@ -125,6 +126,13 @@ source $ZSH/oh-my-zsh.sh
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # User conf
+# Set up PATH for local bin directories
+export PATH="$HOME/bin:$PATH"
+
+# Set up asdf
+export ASDF_DATA_DIR="$HOME/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
+
 # Use colors
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
