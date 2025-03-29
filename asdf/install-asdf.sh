@@ -17,6 +17,19 @@ if [ "$LATEST_RELEASE" == "null" ] || [ -z "$LATEST_RELEASE" ]; then
   exit 1
 fi
 
+# Check if asdf is already installed and at the latest version
+if command -v asdf &> /dev/null; then
+  INSTALLED_VERSION=$(asdf version | awk '{print $1}')
+  if [ "$INSTALLED_VERSION" == "$LATEST_RELEASE" ]; then
+    echo "asdf is already installed at the latest version ($INSTALLED_VERSION). Skipping download."
+    exit 0
+  else
+    echo "asdf is installed, but version ($INSTALLED_VERSION) is outdated. Updating to latest version ($LATEST_RELEASE)."
+  fi
+else
+  echo "asdf is not installed. Proceeding with installation."
+fi
+
 echo "Latest release: $LATEST_RELEASE"
 
 # Set filename based on platform, architecture, and version
