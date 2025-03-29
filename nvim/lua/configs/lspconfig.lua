@@ -1,23 +1,23 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+-- load defaults i.e lua_lsp
+require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require("lspconfig")
-local util = require "lspconfig/util"
+local on_attach = require("nvchad.configs.lspconfig").on_attach
+local capabilities = require("nvchad.configs.lspconfig").capabilities
+local util = require("lspconfig.util")
 
-lspconfig.svelte.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
+-- EXAMPLE
+local servers = { "html", "cssls", "svelte", "tsserver", "tailwindcss" }
+local nvlsp = require "nvchad.configs.lspconfig"
 
-lspconfig.tsserver.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
-
-lspconfig.tailwindcss.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
+-- lsps with default config
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = nvlsp.on_attach,
+    on_init = nvlsp.on_init,
+    capabilities = nvlsp.capabilities,
+  }
+end
 
 lspconfig.emmet_ls.setup({
     on_attach = on_attach,
@@ -62,4 +62,3 @@ lspconfig.gopls.setup {
     },
   },
 }
-
