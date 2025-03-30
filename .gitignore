@@ -2,3 +2,4 @@ local/*
 !local/.gitkeep
 
 k9s/config.yml
+.DS_Store

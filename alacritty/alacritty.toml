@@ -13,4 +13,4 @@ history = 100000
 
 [font]
 normal = { family = "MesloLGS NF", style = "Regular" }
-size = 14
+size = 16

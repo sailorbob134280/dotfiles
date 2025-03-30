@@ -33,11 +33,25 @@ lspconfig.emmet_ls.setup({
     }
 })
 
+local custom_cmd = {
+  "./coruscant/scripts/run-clangd.sh",
+  "--background-index",
+  "--clang-tidy",
+  "--header-insertion=iwyu",
+  "--completion-style=detailed",
+  "--function-arg-placeholders",
+  "--fallback-style=llvm",
+}
+
+local start_script = './coruscant/scripts/run-clangd.sh'
+local file_exists = vim.fn.filereadable(start_script) == 1
+
 lspconfig.clangd.setup({
   on_attach = function (client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
     on_attach(client, bufnr)
   end,
+  cmd = file_exists and custom_cmd or cmd,
   capabilities = capabilities
 })
 
