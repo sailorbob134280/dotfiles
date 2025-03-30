@@ -16,7 +16,7 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: k3s-lab
+  currentContext: k3s-prod
   currentCluster: default
   clusters:
     default:
@@ -24,7 +24,9 @@ k9s:
         active: all
         lockFavorites: false
         favorites:
-        - apps
+        - argocd
+        - longhorn-system
+        - games
         - all
         - default
       view:
