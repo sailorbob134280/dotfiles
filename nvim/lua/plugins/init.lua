@@ -165,36 +165,36 @@ return {
       },
     },
   },
-  { -- optional cmp completion source for require statements and module annotations
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      opts.sources = opts.sources or {}
-
-      table.insert(opts.sources, {
-        name = "lazydev",
-        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-      })
-    end,
-  },
-  { -- optional blink completion source for require statements and module annotations
-    "saghen/blink.cmp",
-    opts = {
-      sources = {
-
-        -- add lazydev to your completion providers
-        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-        providers = {
-          lazydev = {
-            name = "LazyDev",
-
-            module = "lazydev.integrations.blink",
-            -- make lazydev completions top priority (see `:h blink.cmp`)
-            score_offset = 100,
-          },
-        },
-      },
-    },
-  },
+  -- { -- optional cmp completion source for require statements and module annotations
+  --   "hrsh7th/nvim-cmp",
+  --   opts = function(_, opts)
+  --     opts.sources = opts.sources or {}
+  --
+  --     table.insert(opts.sources, {
+  --       name = "lazydev",
+  --       group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+  --     })
+  --   end,
+  -- },
+  -- { -- optional blink completion source for require statements and module annotations
+  --   "saghen/blink.cmp",
+  --   opts = {
+  --     sources = {
+  --
+  --       -- add lazydev to your completion providers
+  --       default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+  --       providers = {
+  --         lazydev = {
+  --           name = "LazyDev",
+  --
+  --           module = "lazydev.integrations.blink",
+  --           -- make lazydev completions top priority (see `:h blink.cmp`)
+  --           score_offset = 100,
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
   {
     "leoluz/nvim-dap-go",
     ft = "go",
@@ -250,6 +250,29 @@ return {
     config = function(_, opts)
       require("copilot").setup(opts)
     end
+  },
+  {
+    "Davidyz/VectorCode",
+    lazy = false,
+    version = "*",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    cmd = { "VectorCode" },
+    config = function()
+      require("configs.vectorcode").setup()
+    end,
+  },
+  {
+    "olimorris/codecompanion.nvim",
+    config = true,
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "Davidyz/VectorCode",
+    },
+    opts = function()
+      return require("configs.codecompanion").opts
+    end,
   },
   {
     "NoahTheDuke/vim-just",
