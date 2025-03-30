@@ -1,8 +1,41 @@
 return {
+  -- Packages
+  {
+    "williamboman/mason.nvim",
+    cmd = { "Mason", "MasonInstall", "MasonUpdate" },
+    config = function(_, opts)
+      require("mason").setup(opts)
+    end,
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = {
+      "williamboman/mason.nvim", -- Mason must be loaded first
+    },
+    cmd = {
+      "MasonToolsInstall", "MasonToolsInstallSync",
+      "MasonToolsUpdate", "MasonToolsUpdateSync",
+      "MasonToolsClean",
+    },
+    opts = function ()
+      return require("configs.mason").opts
+    end
+  },
+
+  -- Formatting and highlighting
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
+  },
+
+  { -- TODO: deprecated :(
+    "jose-elias-alvarez/null-ls.nvim",
+    ft = {"go", "python"},
+    event = "VeryLazy",
+    opts = function()
+      return require "configs.null-ls"
+    end,
   },
   {
   	"nvim-treesitter/nvim-treesitter",
@@ -46,16 +79,6 @@ return {
   	},
   },
   {
-    "christoomey/vim-tmux-navigator",
-    lazy = false,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function ()
-      require "configs.lspconfig"
-    end,
-  },
-  {
     "MunifTanjim/prettier.nvim",
     lazy = false,
     config = function ()
@@ -67,70 +90,48 @@ return {
       })
     end
   },
+
+  -- LSP
   {
-    "williamboman/mason.nvim",
-    cmd = { "Mason", "MasonInstall", "MasonUpdate" },
-    config = function(_, opts)
-      require("mason").setup(opts)
+    "neovim/nvim-lspconfig",
+    config = function ()
+      require "configs.lspconfig"
     end,
   },
+
+  -- Completions
   {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    dependencies = {
-      "williamboman/mason.nvim", -- Mason must be loaded first
-    },
-    cmd = {
-      "MasonToolsInstall", "MasonToolsInstallSync",
-      "MasonToolsUpdate", "MasonToolsUpdateSync",
-      "MasonToolsClean",
-    },
-    opts = {
-      ensure_installed = {
-        "air",
-        "black",
-        "clang-format",
-        "clangd",
-        "cmake-language-server",
-        "codelldb",
-        "cucumber-language-server",
-        "cuelsp",
-        "debugpy",
-        "delve",
-        "docker-compose-language-service",
-        "dockerfile-language-server",
-        "emmet-ls",
-        "go-debug-adapter",
-        "gofumpt",
-        "goimports",
-        "goimports-reviser",
-        "golangci-lint",
-        "golangci-lint-langserver",
-        "golines",
-        "gomodifytags",
-        "gopls",
-        "gotests",
-        "iferr",
-        "impl",
-        "lua-language-server",
-        "markdownlint",
-        "mesonlsp",
-        "mypy",
-        "prettier",
-        "prettierd",
-        "protolint",
-        "pyright",
-        "ruff",
-        "svelte-language-server",
-        "tailwindcss-language-server",
-        "typescript-language-server",
-      },
-    },
+    -- NVChad includes this by default, need to disable it
+    "hrsh7th/nvim-cmp",
+    enabled = false,
   },
   {
+    "saghen/blink.cmp",
+    lazy = false,
+    version = "1.*",
+    dependencies = {
+      {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*", -- Main is apparently broken
+        dependencies = { "rafamadriz/friendly-snippets" },
+        build = "make install_jsregexp",
+        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+        config = function(_, opts)
+          require("luasnip").config.set_config(opts)
+          require("configs.luasnip")
+        end,
+      },
+      "moyiz/blink-emoji.nvim",
+      "Kaiser-Yang/blink-cmp-dictionary",
+    },
+    opts = function()
+      return require("configs.blink").opts
+    end,
+  },
+
+  -- Debugging
+  {
     "mfussenegger/nvim-dap",
-    -- init = function ()
-      -- require("nvchad.utils").load_mappings("dap")
-    -- end
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -165,36 +166,6 @@ return {
       },
     },
   },
-  -- { -- optional cmp completion source for require statements and module annotations
-  --   "hrsh7th/nvim-cmp",
-  --   opts = function(_, opts)
-  --     opts.sources = opts.sources or {}
-  --
-  --     table.insert(opts.sources, {
-  --       name = "lazydev",
-  --       group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-  --     })
-  --   end,
-  -- },
-  -- { -- optional blink completion source for require statements and module annotations
-  --   "saghen/blink.cmp",
-  --   opts = {
-  --     sources = {
-  --
-  --       -- add lazydev to your completion providers
-  --       default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-  --       providers = {
-  --         lazydev = {
-  --           name = "LazyDev",
-  --
-  --           module = "lazydev.integrations.blink",
-  --           -- make lazydev completions top priority (see `:h blink.cmp`)
-  --           score_offset = 100,
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
   {
     "leoluz/nvim-dap-go",
     ft = "go",
@@ -207,7 +178,7 @@ return {
     "mfussenegger/nvim-dap-python",
     ft = "python",
     dependencies = {"mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui"},
-    config = function (_, opts)
+    config = function (_, _)
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
     end,
@@ -223,14 +194,8 @@ return {
       handlers = {},
     }
   },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = {"go", "python"},
-    event = "VeryLazy",
-    opts = function()
-      return require "configs.null-ls"
-    end,
-  },
+
+  -- Languages
   {
     "olexsmir/gopher.nvim",
     ft = "go",
@@ -241,6 +206,13 @@ return {
       vim.cmd [[silent! GoInstallDeps]]
     end,
   },
+  {
+    "NoahTheDuke/vim-just",
+    event = { "BufReadPre", "BufNewFile" },
+    ft = { "\\cjustfile", "*.just", ".justfile" },
+  },
+
+  -- AI Tooling
   {
     "zbirenbaum/copilot.lua",
     lazy = false,
@@ -253,7 +225,6 @@ return {
   },
   {
     "Davidyz/VectorCode",
-    lazy = false,
     version = "*",
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = { "VectorCode" },
@@ -264,7 +235,7 @@ return {
   {
     "olimorris/codecompanion.nvim",
     config = true,
-    lazy = false,
+    lazy = false, -- Otherwise it won't load
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -274,14 +245,10 @@ return {
       return require("configs.codecompanion").opts
     end,
   },
-  {
-    "NoahTheDuke/vim-just",
-    event = { "BufReadPre", "BufNewFile" },
-    ft = { "\\cjustfile", "*.just", ".justfile" },
-  },
+
+  -- Misc
   {
     'stevearc/oil.nvim',
-    ---@module 'oil'
     opts = require("configs.oil-config"),
     config = function(_, opts)
       require('oil').setup(opts)
@@ -293,5 +260,9 @@ return {
     -- Cannot be lazy loaded because otherwise it won't open
     lazy = false,
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
   },
 }
