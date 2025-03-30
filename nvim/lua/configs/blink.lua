@@ -35,7 +35,7 @@ local opts = {
     },
   },
   sources = {
-    default = { "lazydev", "lsp", "path", "snippets", "buffer", "codecompanion" },
+    default = { "lazydev", "lsp", "path", "snippets", "buffer", "dadbod", "emoji", "dictionary", "codecompanion" },
     providers = {
       lsp = {
         name = "lsp",
@@ -59,6 +59,26 @@ local opts = {
         module = "codecompanion.providers.completion.blink",
         enabled = true,
         score_offset = 100,
+      },
+      dadbod = {
+        name = "dadbod",
+        module = "vim_dadbod_completion.blink",
+        enabled = true,
+        score_offset = 100,
+      },
+      emoji = {
+        name = "emoji",
+        module = "blink-emoji",
+        enabled = true,
+        score_offset = 30,
+      },
+      dictionary = {
+        name = "Dict",
+        module = "blink-cmp-dictionary",
+        enabled = true,
+        max_items = 8,
+        min_keyword_length = 3,
+        score_offset = 20,
       },
     },
   },
