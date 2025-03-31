@@ -259,9 +259,13 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "Davidyz/VectorCode",
+      "j-hui/fidget.nvim",
     },
     opts = function()
       return require("configs.codecompanion").opts
+    end,
+    init = function()
+      require("configs.fidget-spinner"):init()
     end,
   },
 
