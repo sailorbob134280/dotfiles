@@ -21,6 +21,7 @@ map({ "n" }, "<leader>dus", function ()
   local sidebar = widgets.sidebar(widgets.scopes)
   sidebar.open()
 end, { desc = "Open debugging sidebar" })
+map({ "n" }, "<leader>dui", function () require("dapui").toggle() end, { desc = "Open debugger view" })
 
 -- DAP Go
 map({ "n" }, "<leader>dgt", function ()

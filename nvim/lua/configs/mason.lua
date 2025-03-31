@@ -6,6 +6,7 @@ local opts = {
     "clangd",
     "cmake-language-server",
     "codelldb",
+    "cpptools",
     "cucumber-language-server",
     "cuelsp",
     "debugpy",
