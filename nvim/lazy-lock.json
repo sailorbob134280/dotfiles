@@ -9,6 +9,7 @@
   "codecompanion.nvim": { "branch": "main", "commit": "fc9509884b23adbd26938611d6ba53464b7c8d0c" },
   "conform.nvim": { "branch": "master", "commit": "f9ef25a7ef00267b7d13bfc00b0dea22d78702d5" },
   "copilot.lua": { "branch": "master", "commit": "d661d65b4cab20a5c164f6d9081d91ed324fe4d8" },
+  "fidget.nvim": { "branch": "main", "commit": "d9ba6b7bfe29b3119a610892af67602641da778e" },
   "friendly-snippets": { "branch": "main", "commit": "efff286dd74c22f731cdec26a70b46e5b203c619" },
   "gitsigns.nvim": { "branch": "main", "commit": "3c76f7fabac723aa682365ef782f88a83ccdb4ac" },
   "gopher.nvim": { "branch": "main", "commit": "9d28cdebf1593517fd91ab4f9d35569d8da2ba7f" },
