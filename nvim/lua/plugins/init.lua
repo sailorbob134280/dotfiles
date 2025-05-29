@@ -13,34 +13,27 @@ return {
       "williamboman/mason.nvim", -- Mason must be loaded first
     },
     cmd = {
-      "MasonToolsInstall", "MasonToolsInstallSync",
-      "MasonToolsUpdate", "MasonToolsUpdateSync",
+      "MasonToolsInstall",
+      "MasonToolsInstallSync",
+      "MasonToolsUpdate",
+      "MasonToolsUpdateSync",
       "MasonToolsClean",
     },
-    opts = function ()
+    opts = function()
       return require("configs.mason").opts
-    end
+    end,
   },
 
   -- Formatting and highlighting
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre",
     opts = require "configs.conform",
   },
-
-  { -- TODO: deprecated :(
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = {"go", "python"},
-    event = "VeryLazy",
-    opts = function()
-      return require "configs.null-ls"
-    end,
-  },
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
         "bash",
         "c",
         "cmake",
@@ -72,45 +65,45 @@ return {
         "templ",
         "toml",
         "typescript",
-  			"vim",
+        "vim",
         "vimdoc",
         "yaml",
-  		},
-  	},
+      },
+    },
   },
   {
     "MunifTanjim/prettier.nvim",
     lazy = false,
-    config = function ()
-      require("prettier").setup({
+    config = function()
+      require("prettier").setup {
         bin = "prettierd",
         cli_options = {
           html_whitespace_sensitivity = "css",
         },
-      })
-    end
+      }
+    end,
   },
 
   -- LSP
   {
     "neovim/nvim-lspconfig",
-    config = function ()
+    config = function()
       require "configs.lspconfig"
     end,
   },
 
   -- Dad Bod
   {
-    'kristijanhusak/vim-dadbod-ui',
+    "kristijanhusak/vim-dadbod-ui",
     dependencies = {
-      { 'tpope/vim-dadbod', lazy = true },
-      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
+      { "tpope/vim-dadbod", lazy = true },
+      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true }, -- Optional
     },
     cmd = {
-      'DBUI',
-      'DBUIToggle',
-      'DBUIAddConnection',
-      'DBUIFindBuffer',
+      "DBUI",
+      "DBUIToggle",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
     },
     init = function()
       -- Your DBUI configuration
@@ -137,7 +130,7 @@ return {
         opts = { history = true, updateevents = "TextChanged,TextChangedI" },
         config = function(_, opts)
           require("luasnip").config.set_config(opts)
-          require("configs.luasnip")
+          require "configs.luasnip"
         end,
       },
       "moyiz/blink-emoji.nvim",
@@ -157,22 +150,22 @@ return {
     event = "VeryLazy",
     dependencies = {
       "mfussenegger/nvim-dap",
-      "nvim-neotest/nvim-nio"
+      "nvim-neotest/nvim-nio",
     },
-    config = function ()
-      local dap = require("dap")
-      local dapui = require("dapui")
+    config = function()
+      local dap = require "dap"
+      local dapui = require "dapui"
       dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function ()
+      dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
       end
-      dap.listeners.before.event_terminated["dapui_config"] = function ()
+      dap.listeners.before.event_terminated["dapui_config"] = function()
         dapui.close()
       end
-      dap.listeners.before.event_exited["dapui_config"] = function ()
+      dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
       end
-    end
+    end,
   },
   {
     "folke/lazydev.nvim",
@@ -188,7 +181,7 @@ return {
   {
     "leoluz/nvim-dap-go",
     ft = "go",
-    dependencies = {"mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui"},
+    dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" },
     config = function(_, opts)
       require("dap-go").setup(opts)
     end,
@@ -196,8 +189,8 @@ return {
   {
     "mfussenegger/nvim-dap-python",
     ft = "python",
-    dependencies = {"mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui"},
-    config = function (_, _)
+    dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" },
+    config = function(_, _)
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
     end,
@@ -211,17 +204,17 @@ return {
     },
     opts = {
       handlers = {},
-    }
+    },
   },
 
   -- Languages
   {
     "olexsmir/gopher.nvim",
     ft = "go",
-    config = function (_, opts)
+    config = function(_, opts)
       require("gopher").setup(opts)
     end,
-    build = function ()
+    build = function()
       vim.cmd [[silent! GoInstallDeps]]
     end,
   },
@@ -235,16 +228,17 @@ return {
   {
     "zbirenbaum/copilot.lua",
     lazy = false,
-    opts = function ()
+    opts = function()
       return require "configs.copilot"
     end,
     config = function(_, opts)
       require("copilot").setup(opts)
-    end
+    end,
   },
   {
     "Davidyz/VectorCode",
     version = "*",
+    build = "pipx upgrade vectorcode",
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = { "VectorCode" },
     config = function()
@@ -271,14 +265,14 @@ return {
 
   -- Misc
   {
-    'stevearc/oil.nvim',
-    opts = require("configs.oil-config"),
+    "stevearc/oil.nvim",
+    opts = require "configs.oil-config",
     config = function(_, opts)
-      require('oil').setup(opts)
+      require("oil").setup(opts)
     end,
     keys = {
-      {"-", "<Cmd>Oil<CR>", mode = "n", desc = "Open parent directory" },
-      {"<space>-", "<Cmd>Oil --float<CR>", mode = "n", desc = "Open parent directory in floating window" },
+      { "-", "<Cmd>Oil<CR>", mode = "n", desc = "Open parent directory" },
+      { "<space>-", "<Cmd>Oil --float<CR>", mode = "n", desc = "Open parent directory in floating window" },
     },
     -- Cannot be lazy loaded because otherwise it won't open
     lazy = false,

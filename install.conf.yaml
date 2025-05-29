@@ -74,9 +74,9 @@
         - latest
     - plugin: neovim
       url: https://github.com/richin13/asdf-neovim.git
-      default: v0.10.4
+      default: v0.11.1
       versions:
-        - v0.10.4
+        - v0.11.1
     - plugin: cue
       url: https://github.com/asdf-community/asdf-cue.git
       default: latest
@@ -154,6 +154,11 @@
         - latest
     - plugin: adr-tools
       url: https://gitlab.com/td7x/asdf/adr-tools.git
+      default: latest
+      versions:
+        - latest
+    - plugin: pipx
+      url: https://github.com/yozachar/asdf-pipx.git
       default: latest
       versions:
         - latest

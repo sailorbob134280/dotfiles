@@ -1,6 +1,5 @@
 local opts = {
   ensure_installed = {
-    "air",
     "black",
     "clang-format",
     "clangd",
@@ -37,6 +36,7 @@ local opts = {
     "ruff",
     "svelte-language-server",
     "tailwindcss-language-server",
+    "templ",
     "typescript-language-server",
   },
 }

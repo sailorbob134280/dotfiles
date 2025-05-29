@@ -1,0 +1,9 @@
+{
+  "User Story": {
+    "prefix": "story",
+    "body": [
+      "As a ${1:user}, I want ${2:feature} so that I can ${3:rationale}."
+    ],
+    "description": "Insert a standard user story."
+  }
+}

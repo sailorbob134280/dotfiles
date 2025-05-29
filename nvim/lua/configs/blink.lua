@@ -2,8 +2,10 @@ local opts = {
   keymap = {
     preset = "enter",
     ["<CR>"] = { "select_and_accept", "fallback" },
-    ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-    ["<S-Tab>"] = { "select_prev", "snippet_forward", "fallback" },
+    ["<Tab>"] = { "select_next", "fallback" },
+    ["<S-Tab>"] = { "select_prev", "fallback" },
+    ["<C-Tab>"] = { "snippet_forward", "fallback" },
+    ["<C-S-Tab>"] = { "snippet_backward", "fallback" },
 
     ["<Up>"] = { "select_prev", "fallback" },
     ["<Down>"] = { "select_next", "fallback" },
