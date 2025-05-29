@@ -83,6 +83,29 @@ return {
       }
     end,
   },
+  {
+    "malbertzard/inline-fold.nvim",
+    opts = {
+      defaultPlaceholder = "…",
+      queries = {
+        html = {
+          { pattern = 'class="([^"]*)"', placeholder = "@" }, -- classes in html
+          { pattern = 'href="(.-)"' }, -- hrefs in html
+          { pattern = 'src="(.-)"' }, -- HTML img src attribute
+        },
+      },
+    },
+    config = function(_, _)
+      vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+        pattern = { "*.html", "*.js", "*.ts", "*.jsx", "*.tsx", "*.vue", "*.svelte", "*.templ" },
+        callback = function(_)
+          if not require("inline-fold.module").isHidden then
+            vim.cmd "InlineFoldToggle"
+          end
+        end,
+      })
+    end,
+  },
 
   -- LSP
   {

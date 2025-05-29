@@ -18,6 +18,7 @@ local opts = {
     ["<C-k>"] = { "show_signature", "hide_signature", "show_documentation", "hide_documentation", "fallback" },
     ["<C-e>"] = { "hide", "fallback" },
   },
+  fuzzy = { implementation = "rust" },
   snippets = {
     preset = "luasnip",
   },
