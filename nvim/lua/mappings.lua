@@ -16,6 +16,15 @@ map("n", "<C-k>", "<cmd> TmuxNavigateUp <cr>", { desc = "Navigate to top pane in
 -- LSP
 map("n", "<leader>ca", "<cmd> lua vim.lsp.buf.code_action() <cr>", { desc = "Code action" })
 
+-- Refactoring
+map("x", "<leader>re", ":Refactor extract ")
+map("x", "<leader>rf", ":Refactor extract_to_file ")
+map("x", "<leader>rv", ":Refactor extract_var ")
+map({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
+map("n", "<leader>rI", ":Refactor inline_func")
+map("n", "<leader>rb", ":Refactor extract_block")
+map("n", "<leader>rbf", ":Refactor extract_block_to_file")
+
 -- DAP
 map({ "n", "v" }, "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Add breakpoint at line" })
 map({ "n" }, "<leader>dr", "<cmd> DapContinue <cr>", { desc = "Start or continue the debugger" })
