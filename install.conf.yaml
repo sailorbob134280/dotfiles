@@ -162,3 +162,8 @@
       default: latest
       versions:
         - latest
+    - plugin: rust
+      url: https://github.com/code-lever/asdf-rust.git
+      default: 1.87.0
+      versions:
+        - 1.87.0
