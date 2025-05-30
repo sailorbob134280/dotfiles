@@ -50,7 +50,6 @@ map({ "n" }, "<leader>gsj", "<cmd> GoTagAdd json <CR>", { desc = "Add JSON struc
 map({ "n" }, "<leader>gsy", "<cmd> GoTagAdd yaml <CR>", { desc = "Add YAML struct tags" })
 map({ "n" }, "<leader>gcm", "<cmd> GoCmt <CR>", { desc = "Add doc comment" })
 map({ "n" }, "<leader>ger", "<cmd> GoIfErr <CR>", { desc = "Add error handling boilerplate" })
-map({ "n" }, "<leader>gim", "<cmd> GoImpl <CR>", { desc = "Add interface implementation" })
 
 -- DAP Python
 map({ "n" }, "<leader>dpr", function()
