@@ -61,4 +61,13 @@ map({ "n" }, "<leader>dpr", function()
   require("dap-python").test_method()
 end, { desc = "Debug Python test" })
 
+-- neotest
+map({ "n" }, "<leader>ntt", "<cmd> Neotest run <cr>", { desc = "Run test at cursor" })
+map({ "n" }, "<leader>ntf", "<cmd> Neotest run file <cr>", { desc = "Run tests in file" })
+map({ "n" }, "<leader>nts", "<cmd> Neotest summary <cr>", { desc = "Open the summary panel" })
+map({ "n" }, "<leader>nto", "<cmd> Neotest output <cr>", { desc = "Open the output" })
+map({ "n" }, "<leader>ntw", function()
+  require("neotest").watch.toggle(vim.fn.expand "%")
+end, { desc = "Open the output" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

@@ -261,6 +261,33 @@ return {
     },
   },
 
+  -- Testing
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/neotest-go",
+      "nvim-neotest/neotest-python",
+      "alfaix/neotest-gtest",
+    },
+    lazy = false,
+    config = function()
+      require "configs.neotest"
+    end,
+  },
+  {
+    "andythigpen/nvim-coverage",
+    version = "*",
+    config = function()
+      require("coverage").setup {
+        auto_reload = true,
+      }
+    end,
+  },
+
   -- Languages
   {
     "olexsmir/gopher.nvim",
