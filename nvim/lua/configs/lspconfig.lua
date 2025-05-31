@@ -48,11 +48,14 @@ lspconfig.emmet_ls.setup {
   },
 }
 
+local c = require "configs.local_lspconfig"
+
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
     nvlsp.on_attach(client, bufnr)
   end,
+  cmd = c.file_exists and c.custom_cmd or cmd,
   capabilities = capabilities,
 }
 
