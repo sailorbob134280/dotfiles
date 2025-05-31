@@ -34,6 +34,7 @@ local opts = {
     "protolint",
     "pyright",
     "ruff",
+    "rust-analyzer",
     "svelte-language-server",
     "tailwindcss-language-server",
     "templ",

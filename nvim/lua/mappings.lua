@@ -51,6 +51,11 @@ map({ "n" }, "<leader>gsy", "<cmd> GoTagAdd yaml <CR>", { desc = "Add YAML struc
 map({ "n" }, "<leader>gcm", "<cmd> GoCmt <CR>", { desc = "Add doc comment" })
 map({ "n" }, "<leader>ger", "<cmd> GoIfErr <CR>", { desc = "Add error handling boilerplate" })
 
+-- Rust
+map({ "n" }, "<leader>rcu", function()
+  require("crates").upgrade_all_crates()
+end, { desc = "Upgrade all crates" })
+
 -- DAP Python
 map({ "n" }, "<leader>dpr", function()
   require("dap-python").test_method()

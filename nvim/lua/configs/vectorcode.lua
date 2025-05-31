@@ -1,4 +1,4 @@
-local cacher = require "vectorcode.cacher.default"
+local cacher = require("vectorcode.cacher").utils
 
 local setup = function()
   vim.api.nvim_create_autocmd("LspAttach", {

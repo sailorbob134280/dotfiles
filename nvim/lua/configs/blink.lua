@@ -38,7 +38,17 @@ local opts = {
     },
   },
   sources = {
-    default = { "lazydev", "lsp", "path", "snippets", "buffer", "dadbod", "emoji", "dictionary", "codecompanion" },
+    default = {
+      "lazydev",
+      "lsp",
+      "path",
+      "snippets",
+      "buffer",
+      "dadbod",
+      "emoji",
+      "dictionary",
+      "codecompanion",
+    },
     providers = {
       lsp = {
         name = "lsp",
