@@ -48,20 +48,11 @@ lspconfig.emmet_ls.setup {
   },
 }
 
-local custom_cmd = {
-  "./coruscant/run.sh",
-  "--clangd",
-}
-
-local start_script = "./coruscant/run.sh"
-local file_exists = vim.fn.filereadable(start_script) == 1
-
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
     nvlsp.on_attach(client, bufnr)
   end,
-  cmd = file_exists and custom_cmd or cmd,
   capabilities = capabilities,
 }
 
