@@ -23,6 +23,7 @@ local opts = {
     "gomodifytags",
     "gopls",
     "gotests",
+    "html-lsp",
     "iferr",
     "impl",
     "lua-language-server",
