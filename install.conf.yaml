@@ -157,13 +157,19 @@
       default: latest
       versions:
         - latest
-    - plugin: pipx
-      url: https://github.com/yozachar/asdf-pipx.git
-      default: latest
-      versions:
-        - latest
     - plugin: rust
       url: https://github.com/code-lever/asdf-rust.git
       default: 1.87.0
       versions:
         - 1.87.0
+    - plugin: uv
+      url: https://github.com/asdf-community/asdf-uv.git
+      default: latest
+      versions:
+        - latest
+
+- shell:
+    # Install latest python with uv, need the preview flag because global is not officially supported yet
+    - command: uv python install --default --preview
+      description: Install Python with UV
+      quiet: true
