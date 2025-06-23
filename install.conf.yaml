@@ -169,7 +169,10 @@
         - latest
 
 - shell:
-    # Install latest python with uv, need the preview flag because global is not officially supported yet
+    # Need the preview flag because global is not officially supported yet
     - command: uv python install --default --preview
       description: Install Python with UV
+      quiet: true
+    - command: curl -fsSL https://github.com/block/goose/releases/download/v1.0.26/download_cli.sh | CONFIGURE=false bash
+      description: Install Goose CLI
       quiet: true
