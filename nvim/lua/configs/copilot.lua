@@ -36,6 +36,7 @@ local options = {
     hgcommit = false,
     svn = false,
     cvs = false,
+    rst = true,
     ["."] = false,
   },
   copilot_node_command = "node", -- Node.js version must be > 16.x
