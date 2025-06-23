@@ -38,6 +38,7 @@
 
     # Tools
     ~/.config/k9s: k9s
+    ~/.config/goose/config.yaml: goose/config.yaml
 
 - shell:
     - command: git submodule sync --recursive
