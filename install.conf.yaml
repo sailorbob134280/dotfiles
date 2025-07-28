@@ -130,9 +130,9 @@
         - latest
     - plugin: kind
       url: https://github.com/reegnz/asdf-kind.git
-      default: v0.29.0
+      default: 0.29.0
       versions:
-        - v0.29.0
+        - 0.29.0
     - plugin: lua
       url: https://github.com/Stratus3D/asdf-lua.git
       default: latest
@@ -183,6 +183,9 @@
     # Need the preview flag because global is not officially supported yet
     - command: uv python install --default --preview
       description: Install Python with UV
+      quiet: true
+    - command: uv tool install better-timetagger-cli
+      description: Install Better Time Tagger CLI with UV
       quiet: true
     - command: curl -fsSL https://github.com/block/goose/releases/download/stable/download_cli.sh | CONFIGURE=false bash
       description: Install Goose CLI
