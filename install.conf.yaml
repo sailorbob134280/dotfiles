@@ -95,9 +95,9 @@
         - latest
     - plugin: sops
       url: https://github.com/feniix/asdf-sops.git
-      default: 3.9.4
+      default: 3.10.2
       versions:
-        - 3.9.4
+        - 3.10.2
     - plugin: just
       url: https://github.com/olofvndrhr/asdf-just.git
       default: latest
@@ -186,6 +186,9 @@
       quiet: true
     - command: uv tool install better-timetagger-cli
       description: Install Better Time Tagger CLI with UV
+      quiet: true
+    - command: helm plugin install https://github.com/jkroepke/helm-secrets --version v4.6.5
+      description: Install Helm Secrets Plugin
       quiet: true
     - command: curl -fsSL https://github.com/block/goose/releases/download/stable/download_cli.sh | CONFIGURE=false bash
       description: Install Goose CLI
