@@ -5,7 +5,10 @@
       {
         "language": "all",
         "path": "./user-stories.json"
-      }
+      },
+      {
+        "language": "yaml",
+        "path": "./kube.yaml"
     ]
   }
 }

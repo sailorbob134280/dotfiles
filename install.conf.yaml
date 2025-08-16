@@ -75,9 +75,9 @@
         - latest
     - plugin: neovim
       url: https://github.com/richin13/asdf-neovim.git
-      default: v0.11.1
+      default: v0.11.3
       versions:
-        - v0.11.1
+        - v0.11.3
     - plugin: cue
       url: https://github.com/asdf-community/asdf-cue.git
       default: latest
