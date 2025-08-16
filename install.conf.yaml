@@ -187,6 +187,9 @@
     - command: uv tool install better-timetagger-cli
       description: Install Better Time Tagger CLI with UV
       quiet: true
+    - command: helm plugin install https://github.com/jkroepke/helm-secrets --version v4.6.5
+      description: Install Helm Secrets Plugin
+      quiet: true
     - command: curl -fsSL https://github.com/block/goose/releases/download/stable/download_cli.sh | CONFIGURE=false bash
       description: Install Goose CLI
       quiet: true
