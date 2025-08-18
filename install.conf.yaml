@@ -52,6 +52,11 @@
       quiet: false
 
 - asdf:
+    - plugin: cue
+      url: https://github.com/asdf-community/asdf-cue.git
+      default: 0.14.0
+      versions:
+        - 0.14.0
     - plugin: kubectl
       url: https://github.com/asdf-community/asdf-kubectl.git
       default: latest
@@ -78,11 +83,6 @@
       default: v0.11.1
       versions:
         - v0.11.1
-    - plugin: cue
-      url: https://github.com/asdf-community/asdf-cue.git
-      default: latest
-      versions:
-        - latest
     - plugin: protoc
       url: https://github.com/paxosglobal/asdf-protoc.git
       default: latest
